@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/registerFragment">
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.piscoya.appchat.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/registerFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.piscoya.appchat.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp">
+        <action
+            android:id="@+id/otpFragment_to_addProfileFragment"
+            app:destination="@id/addProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addProfileFragment"
+        android:name="com.piscoya.appchat.AddProfileFragment"
+        android:label="fragment_add_profile"
+        tools:layout="@layout/fragment_add_profile" />
+</navigation>
