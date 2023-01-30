@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "273432133007",
+    "project_id": "app-chat-a0836",
+    "storage_bucket": "app-chat-a0836.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273432133007:android:1f101ee83c69bb24f71ffa",
+        "android_client_info": {
+          "package_name": "com.piscoya.appchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273432133007-4cgl9uks3gbu4f9ipme648v6se5qpaai.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAp3BGbHOM52pc04Blz-P9CfEYP7CvMuhw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273432133007-4cgl9uks3gbu4f9ipme648v6se5qpaai.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
