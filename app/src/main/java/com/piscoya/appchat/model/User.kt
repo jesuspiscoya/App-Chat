@@ -1,10 +1,10 @@
-package com.piscoya.appchat
+package com.piscoya.appchat.model
 
 class User {
-    lateinit var id: String
-    lateinit var nombre: String
-    lateinit var numero: String
-    lateinit var imgPerfil: String
+    var id: String? = null
+    var nombre: String? = null
+    var numero: String? = null
+    var imgPerfil: String? = null
 
     constructor() {}
 

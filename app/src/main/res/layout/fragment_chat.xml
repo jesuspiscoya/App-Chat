@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ChatFragment">
+
+    <LinearLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#184A70"
+        android:gravity="center_vertical"
+        android:paddingBottom="@dimen/_6sdp"
+        android:paddingHorizontal="@dimen/_3sdp">
+
+        <Button
+            android:id="@+id/btn_atras"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_29sdp"
+            android:layout_marginEnd="@dimen/_1sdp"
+            app:icon="@drawable/ic_back"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="@dimen/_18sdp" />
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/img_perfil"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_add_profile"
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="2dp"
+            app:civ_shadow="true"
+            app:civ_shadow_color="#404040"
+            app:civ_shadow_radius="2dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_nombre_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Nombre"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_conexion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Desconectado"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10sdp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_mas"
+            style="@style/Widget.Material3.Button.UnelevatedButton"
+            android:layout_width="@dimen/_29sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            app:icon="@drawable/ic_more"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="@dimen/_28sdp" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card_view"
+        android:layout_below="@+id/app_bar"
+        android:paddingHorizontal="@dimen/_3sdp"
+        android:paddingVertical="@dimen/_3sdp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_toStartOf="@+id/btn_enviar"
+        app:cardBackgroundColor="#344B5C"
+        app:cardCornerRadius="@dimen/_40sdp"
+        app:cardElevation="@dimen/_10sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/_9sdp">
+
+            <EditText
+                android:id="@+id/txt_mensaje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:hint="Mensaje"
+                android:inputType="textMultiLine"
+                android:maxLines="6"
+                android:overScrollMode="always"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:textColor="@color/white"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/_13sdp" />
+
+            <ImageView
+                android:id="@+id/btn_galeria"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="bottom"
+                android:layout_marginHorizontal="@dimen/_2sdp"
+                android:src="@drawable/ic_media"
+                app:tint="@color/white" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_enviar"
+        style="@style/Widget.Material3.Button.UnelevatedButton"
+        android:layout_width="@dimen/_37sdp"
+        android:layout_height="@dimen/_43sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/teal_700"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginBottom="@dimen/_1sdp"
+        app:icon="@drawable/ic_send"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        app:iconSize="@dimen/_19sdp" />
+
+</RelativeLayout>

@@ -54,12 +54,23 @@
             android:orientation="vertical"
             android:paddingHorizontal="@dimen/_25sdp">
 
-            <EditText
-                android:id="@+id/txt_nombre_perfil"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/filledTextField"
+                style="?attr/textInputFilledDenseStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:hint="Ingrese su nombre" />
+                android:layout_height="@dimen/_38sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:hint="Nombre"
+                android:textSize="@dimen/_11sdp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txt_nombre_perfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="0dp"
+                    android:textSize="@dimen/_12sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btn_registrar"

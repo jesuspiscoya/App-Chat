@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/_5sdp"
+    android:paddingVertical="@dimen/_2sdp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_receive"
+        android:orientation="horizontal"
+        android:padding="@dimen/_7sdp">
+
+        <TextView
+            android:id="@+id/txt_mensaje"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_4sdp"
+            android:text="Mensaje recibido."
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp" />
+
+
+        <TextView
+            android:id="@+id/txt_tiempo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="01:01 p.m."
+            android:textColor="#B6B6B6"
+            android:textSize="@dimen/_10sdp" />
+    </LinearLayout>
+
+</LinearLayout>

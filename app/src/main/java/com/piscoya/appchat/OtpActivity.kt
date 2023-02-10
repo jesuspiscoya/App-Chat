@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 class OtpActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpBinding
     private lateinit var dialog: ProgressDialog
-    private var auth = FirebaseAuth.getInstance()
+    private var mAuth = FirebaseAuth.getInstance()
     private var verificacionId: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +33,7 @@ class OtpActivity : AppCompatActivity() {
         binding.txtNumero.text =
             intent.getStringExtra("codPais") + " " + intent.getStringExtra("userNumero")
 
-        val options = PhoneAuthOptions.newBuilder(auth)
+        val options = PhoneAuthOptions.newBuilder(mAuth)
             .setPhoneNumber(intent.getStringExtra("codPais") + intent.getStringExtra("userNumero"))
             .setTimeout(60L, TimeUnit.SECONDS)
             .setActivity(this)
@@ -66,8 +66,8 @@ class OtpActivity : AppCompatActivity() {
             }
 
             override fun onOTPComplete(otp: String) {
-                val credential = PhoneAuthProvider.getCredential(verificacionId!!, otp)
-                auth.signInWithCredential(credential)
+                val credencial = PhoneAuthProvider.getCredential(verificacionId!!, otp)
+                mAuth.signInWithCredential(credencial)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
                             binding.codeOtp.showSuccess()

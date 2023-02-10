@@ -10,18 +10,18 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.piscoya.appchat.databinding.ActivityUserSetupBinding
+import com.piscoya.appchat.model.User
 import java.util.*
-import kotlin.collections.HashMap
 
 class UserSetupActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserSetupBinding
     private lateinit var dialog: ProgressDialog
     private var fotoUrl: Uri? = null
-    private var mauth = FirebaseAuth.getInstance()
-    private var mdatabase = FirebaseDatabase.getInstance()
-    private var mstorage = FirebaseStorage.getInstance()
-    private val referenceDatabase = mdatabase.reference
-    private val referenceStorage = mstorage.reference
+    private var mAuth = FirebaseAuth.getInstance()
+    private var mDatabase = FirebaseDatabase.getInstance()
+    private var mStorage = FirebaseStorage.getInstance()
+    private val referenceDatabase = mDatabase.reference
+    private val referenceStorage = mStorage.reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class UserSetupActivity : AppCompatActivity() {
             buscarFoto()
         }
         binding.btnRegistrar.setOnClickListener {
-            if (binding.txtNombrePerfil.text.isEmpty())
+            if (binding.txtNombrePerfil.text!!.isEmpty())
                 Toast.makeText(this, "Ingrese su nombre", Toast.LENGTH_SHORT).show()
             else {
                 dialog.show()
@@ -64,7 +64,7 @@ class UserSetupActivity : AppCompatActivity() {
     }
 
     private fun subirUsuario() {
-        val urlStorageFoto = "${Date().time}_user_${mauth.uid}"
+        val urlStorageFoto = "${Date().time}_user_${mAuth.uid}"
         val folder = referenceStorage.child("UsersPhotos")
         val file = folder.child(urlStorageFoto)
         file.putFile(fotoUrl!!).addOnSuccessListener {
@@ -72,9 +72,9 @@ class UserSetupActivity : AppCompatActivity() {
             while (!uriTask.isSuccessful);
             if (uriTask.isSuccessful) {
                 uriTask.addOnSuccessListener {
-                    val uid = mauth.uid
+                    val uid = mAuth.uid
                     val nombre = binding.txtNombrePerfil.text.toString()
-                    val numero = mauth.currentUser!!.phoneNumber
+                    val numero = mAuth.currentUser!!.phoneNumber
                     val imageUrl = it.toString()
                     val user = User(uid!!, nombre, numero!!, imageUrl)
 
@@ -90,9 +90,9 @@ class UserSetupActivity : AppCompatActivity() {
                         }
                 }
             } else {
-                val uid = mauth.uid
+                val uid = mAuth.uid
                 val nombre = binding.txtNombrePerfil.text.toString()
-                val numero = mauth.currentUser!!.phoneNumber
+                val numero = mAuth.currentUser!!.phoneNumber
                 val user = User(uid!!, nombre, numero!!, "Sin Foto")
 
                 referenceDatabase
