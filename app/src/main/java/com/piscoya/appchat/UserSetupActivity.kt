@@ -1,21 +1,22 @@
 package com.piscoya.appchat
 
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.view.Gravity
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.piscoya.appchat.databinding.ActivityUserSetupBinding
 import com.piscoya.appchat.model.User
+import com.shashank.sony.fancytoastlib.FancyToast
 import java.util.*
 
 class UserSetupActivity : AppCompatActivity() {
     private lateinit var binding: ActivityUserSetupBinding
-    private lateinit var dialog: ProgressDialog
     private var fotoUrl: Uri? = null
     private var mAuth = FirebaseAuth.getInstance()
     private var mDatabase = FirebaseDatabase.getInstance()
@@ -28,17 +29,16 @@ class UserSetupActivity : AppCompatActivity() {
         binding = ActivityUserSetupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        dialog = ProgressDialog(this)
-        dialog.setMessage("Creando perfil...")
-        dialog.setCancelable(false)
-        binding.imgPerfil.setOnClickListener {
-            buscarFoto()
-        }
+        binding.imgPerfil.setOnClickListener { buscarFoto() }
         binding.btnRegistrar.setOnClickListener {
             if (binding.txtNombrePerfil.text!!.isEmpty())
-                Toast.makeText(this, "Ingrese su nombre", Toast.LENGTH_SHORT).show()
+                binding.filledTextField.error = "Ingrese su nombre."
             else {
-                dialog.show()
+                val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(it.windowToken, 0)
+                binding.progressCircular.visibility = View.VISIBLE
+                binding.btnRegistrar.visibility = View.GONE
+                binding.filledTextField.error = null
                 if (fotoUrl != null) {
                     subirUsuario()
                 }
@@ -54,12 +54,12 @@ class UserSetupActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (resultCode == RESULT_OK) {
+        if (resultCode == RESULT_OK)
             if (requestCode == 300) {
                 fotoUrl = data!!.data
                 binding.imgPerfil.setImageURI(fotoUrl)
+                showToast("Se cargó la imágen correctamente.", FancyToast.SUCCESS)
             }
-        }
         super.onActivityResult(requestCode, resultCode, data)
     }
 
@@ -83,7 +83,8 @@ class UserSetupActivity : AppCompatActivity() {
                         .child(uid)
                         .setValue(user)
                         .addOnSuccessListener {
-                            dialog.dismiss()
+                            binding.progressCircular.visibility = View.GONE
+                            binding.btnRegistrar.visibility = View.VISIBLE
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()
@@ -100,15 +101,23 @@ class UserSetupActivity : AppCompatActivity() {
                     .child(uid!!)
                     .setValue(user)
                     .addOnSuccessListener {
-                        dialog.dismiss()
+                        binding.progressCircular.visibility = View.GONE
+                        binding.btnRegistrar.visibility = View.VISIBLE
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                         finish()
                     }
             }
         }.addOnFailureListener {
-            dialog.dismiss()
-            Toast.makeText(this, "Error al cargar foto", Toast.LENGTH_SHORT).show()
+            binding.progressCircular.visibility = View.GONE
+            binding.btnRegistrar.visibility = View.VISIBLE
+            showToast("Error al cargar foto.", FancyToast.ERROR)
         }
+    }
+
+    private fun showToast(msg: String, type: Int) {
+        val toast = FancyToast.makeText(this, msg, FancyToast.LENGTH_SHORT, type, false);
+        toast.setGravity(Gravity.BOTTOM or Gravity.CENTER_VERTICAL, 0, 90);
+        toast.show();
     }
 }

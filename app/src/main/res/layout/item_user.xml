@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_13sdp"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
             <TextView
@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_11sdp"
                 android:text="Mensaje" />
         </LinearLayout>
 
@@ -55,7 +55,7 @@
                 android:id="@+id/txt_fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/_10sdp"
+                android:textSize="@dimen/_11sdp"
                 android:text="29/01/2023" />
 
             <androidx.cardview.widget.CardView

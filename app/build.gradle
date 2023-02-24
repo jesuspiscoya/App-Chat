@@ -58,6 +58,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-database-ktx'
     //Storage DB
     implementation 'com.google.firebase:firebase-storage-ktx'
+    //FancyToast
+    implementation 'io.github.shashank02051997:FancyToast:2.0.2'
     //Select Country
     implementation 'com.github.Ajinkrishnak:CountryCodePicker:1.0.2'
     //Otp Box

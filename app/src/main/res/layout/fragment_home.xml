@@ -26,7 +26,7 @@
         android:layout_marginTop="@dimen/_14sdp"
         android:text="Mensajes"
         android:textColor="@color/white"
-        android:textSize="@dimen/_16sdp"
+        android:textSize="@dimen/_17sdp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

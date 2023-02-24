@@ -1,6 +1,5 @@
 package com.piscoya.appchat.fragment
 
-import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,12 +18,6 @@ import com.piscoya.appchat.R
 import com.piscoya.appchat.adapter.UserAdapter
 import com.piscoya.appchat.databinding.FragmentHomeBinding
 import com.piscoya.appchat.model.User
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
-import java.util.Date
-import kotlin.collections.Map as Map
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding

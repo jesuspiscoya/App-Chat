@@ -95,7 +95,7 @@
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_toStartOf="@+id/btn_enviar"
         app:cardBackgroundColor="#344B5C"
-        app:cardCornerRadius="@dimen/_40sdp"
+        app:cardCornerRadius="@dimen/_18sdp"
         app:cardElevation="@dimen/_10sdp">
 
         <LinearLayout

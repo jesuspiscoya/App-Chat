@@ -58,17 +58,24 @@
                 android:id="@+id/filledTextField"
                 style="?attr/textInputFilledDenseStyle"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_38sdp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_16sdp"
                 android:hint="Nombre"
-                android:textSize="@dimen/_11sdp">
+                android:textSize="@dimen/_11sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:endIconMode="clear_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txt_nombre_perfil"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="0dp"
                     android:textSize="@dimen/_12sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,6 +89,15 @@
                 android:text="Registrar"
                 android:textAllCaps="true"
                 android:textSize="@dimen/_11sdp" />
+
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="@dimen/_37sdp"
+                android:layout_height="@dimen/_37sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

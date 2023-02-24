@@ -54,7 +54,7 @@
                 <com.ak.ui.CountryCodePicker
                     android:id="@+id/list_pais"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_41sdp"
                     android:gravity="center"
                     app:arrowSize="@dimen/_20sdp"
                     app:contentColor="@color/black"
@@ -69,19 +69,26 @@
                     android:id="@+id/filledTextField"
                     style="?attr/textInputFilledDenseStyle"
                     android:layout_width="match_parent"
-                    android:textSize="@dimen/_11sdp"
-                    android:layout_height="@dimen/_38sdp"
-                    android:hint="Número">
+                    android:layout_height="wrap_content"
+                    android:hint="Número"
+                    android:textSize="@dimen/_12sdp"
+                    app:boxCornerRadiusBottomEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusBottomStart="@dimen/_10sdp"
+                    app:boxCornerRadiusTopEnd="@dimen/_10sdp"
+                    app:boxCornerRadiusTopStart="@dimen/_10sdp"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="9"
+                    app:endIconMode="clear_text">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txt_user_numero"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="@dimen/_41sdp"
                         android:inputType="number"
                         android:maxLength="9"
-                        android:paddingTop="15dp"
-                        android:paddingBottom="0dp"
-                        android:textSize="@dimen/_11sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -96,6 +103,15 @@
                 android:text="Continuar"
                 android:textAllCaps="true"
                 android:textSize="@dimen/_11sdp" />
+
+            <ProgressBar
+                android:id="@+id/progress_circular"
+                android:layout_width="@dimen/_37sdp"
+                android:layout_height="@dimen/_37sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_14sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:visibility="gone" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
